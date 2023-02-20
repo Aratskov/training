@@ -16,7 +16,6 @@ function onBtnChoice(event){
     if(event.target.nodeName !== 'BUTTON'){
     return
     }
-    // console.log(event.target)
 
     const currentActionButton = document.querySelector('.tags__btn--active')
     
@@ -29,7 +28,5 @@ function onBtnChoice(event){
 
     const selectTags = event.target.dataset.value;
     console.log(selectTags);
-    
-    // event.target.classList.toggle('tags__btn--active')
-    // console.log(event.target.classList.toggle('tags__btn--active'))
+
 }

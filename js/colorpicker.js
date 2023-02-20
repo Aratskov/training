@@ -31,12 +31,56 @@ style="background-color: ${hex}"
 }
 
 function onPaletteContainer(event) {
-  // Мы проверяем класс,есть или нет при клике.
-  // Если кликнуть по ЦЕЛИ и оно совпадает с сolor-swatch,
-  // то берем в обработку это.В нашем случае,если не совпадает,то выходим
-
-  if (!event.target.classList.contains("color-swatch")) {
+  const colorActive = event.target.classList.contains("color-swatch");
+  if (!colorActive) {
     return;
   }
-  console.log("All good");
+  const swatchEl = event.target;
+  const parentColorCard = swatchEl.closest(".color-card");
+
+  removeActiveClass();
+  addActiveClass(parentColorCard);
+  setBodyColor(swatchEl.dataset.hex);
 }
+
+function setBodyColor(color) {
+  document.body.style.backgroundColor = color;
+}
+
+function removeActiveClass() {
+  const currentActive = document.querySelector(".color-card.is-active");
+  if (currentActive) {
+    currentActive.classList.remove("is-active");
+  }
+}
+
+function addActiveClass(event) {
+  event.classList.add("is-active");
+}
+
+// function onPaletteContainer(event) {
+// Мы проверяем класс,есть или нет при клике.
+// Если кликнуть по ЦЕЛИ и оно совпадает с сolor-swatch,
+// то берем в обработку это.В нашем случае,если не совпадает,то выходим
+//   const colorActive = event.target.classList.contains("color-swatch")
+// if (!colorActive) {
+//   return;
+// }
+
+//   Теперь мы классу который выше нашего КОЛОР_СВАТЧ,должны повесить класс
+//   через хитрый селектор,который ищет до первого совпадения
+
+//   const swatchEl = event.target;
+//   const parentColorCard = swatchEl.closest('.color-card');
+//   const currentActive = document.querySelector('.color-card.is-active')
+
+// УКАЗІВАЕМ ЕСЛИ КНОПКА ТРУ,ТО ТОГДА УДАЛЯЕМ КЛАСС АКТИВ,ЕСЛИ НАЛЛ,ТО ТОГДА ДОБАВЛЯЕМ КЛАСС
+//   if(currentActive){
+//       currentActive.classList.remove('is-active')
+//   }
+//   parentColorCard.classList.add('is-active')
+
+// В КОНЦЕ ПОВЕШАЕМ ЦВЕТ НА ФОН
+// document.body.style.backgroundColor = swatchEl.dataset.hex
+
+//   }
