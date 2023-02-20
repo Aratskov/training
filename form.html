@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Событие сабмита формы</title>
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <p><a href="./index.html">На главную</a></p>
+    <button class="button" data-action="open-modal">Открыть модалку</button>
+    <!-- Событие сабмита формы -->
+    <div class="backdrop js-backdrop">
+    <form class="form js-register-form" autocomplete="off">
+      <div role="group">
+        <label>
+          Почта
+          <input type="email" class="email" name="email" />
+        </label>
+        <label>
+          Пароль
+          <input name="password" type="password" />
+        </label>
+      </div>
+
+      <br />
+      <div role="group" class="js-subscription" >
+        <b>Тип подписки:</b>
+        <label>
+          <input type="radio"  name="subscription" value="YES" />
+          YES
+        </label>
+        <label>
+          <input type="radio"  name="subscription" value="NOT" />
+          NOT
+        </label>
+        <!-- <label>
+          <input type="radio" class="js-subscription" name="subscription" value="pro" />
+          Pro
+        </label> -->
+      </div>
+
+      <br />
+      <button type="submit" disabled class="button js-button">Зарегистрироваться, <span class="js-span">Anonim</span></button>
+      <button type="button" class="button" data-action="close-modal">
+          Закрыть
+        </button>
+    </form>
+    </div>
+
+    <script src="./js/form.js" type="module"></script>
+  </body>
+</html>
